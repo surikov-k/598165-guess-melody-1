@@ -13,8 +13,6 @@ it(`Start button clicks`, () => {
     onStartButtonClick = {clickHandler}
   />);
 
-  console.log(screen.debug()); // eslint-disable-line
-
   const startButton = screen.find(`.welcome__button`);
   startButton.simulate(`click`, {preventDefault() {}});
   expect(clickHandler).toHaveBeenCalledTimes(1);
