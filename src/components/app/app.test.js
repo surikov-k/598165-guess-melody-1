@@ -1,12 +1,42 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import {App} from './app.jsx';
+import App from './app.jsx';
 
-it(`App correctly renders`, () => {
+const mock = {
+  questions: [
+    {
+      type: `genre`,
+      genre: `rock`,
+      answers: [
+        {
+          src: `path`,
+          genre: `rock`,
+        },
+        {
+          src: `path`,
+          genre: `jazz`,
+        },
+        {
+          src: `path`,
+          genre: `blues`,
+        },
+        {
+          src: `path`,
+          genre: `rock`,
+        },
+      ],
+    },
+  ],
+};
+
+
+it(`correctly renders`, () => {
+  const {questions} = mock;
   const tree = renderer
     .create(<App
       gameTime = {0}
       errorCount = {0}
+      questions={questions}
     />)
     .toJSON();
   expect(tree).toMatchSnapshot();
