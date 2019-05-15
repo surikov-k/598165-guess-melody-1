@@ -15,14 +15,17 @@ const mock = {
     },
     answers: [
       {
+        id: 0,
         picture: `img.path`,
         artist: `Artist Name 1`,
       },
       {
+        id: 1,
         picture: `img.path`,
         artist: `Artist Name 2`,
       },
       {
+        id: 2,
         picture: `img.path`,
         artist: `Artist Name 3`,
       },

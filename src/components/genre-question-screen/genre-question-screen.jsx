@@ -52,7 +52,7 @@ const GenreQuestionScreen = ({question, onAnswer}) => {
         evt.preventDefault();
         onAnswer();
       }}>
-        {answers.map((it, i) => <div className="track" key={`answer-${i}`}>
+        {answers.map((it) => <div className="track" key={`answer-${it.id}`}>
           <button
             className="track__button track__button--play"
             type="button">
@@ -65,10 +65,10 @@ const GenreQuestionScreen = ({question, onAnswer}) => {
               className="game__input visually-hidden"
               type="checkbox"
               name="answer"
-              value={`answer-${i}`}
-              id={`answer-${i}`}
+              value={`answer-${it.id}`}
+              id={`answer-${it.id}`}
             />
-            <label className="game__check" htmlFor={`answer-${i}`}>Отметить</label>
+            <label className="game__check" htmlFor={`answer-${it.id}`}>Отметить</label>
           </div>
         </div>)}
         <button className="game__submit button" type="submit">Ответить</button>
@@ -81,6 +81,7 @@ GenreQuestionScreen.propTypes = {
   onAnswer: PropTypes.func.isRequired,
   question: PropTypes.shape({
     answers: PropTypes.arrayOf(PropTypes.shape({
+      id: PropTypes.number.isRequired,
       src: PropTypes.string.isRequired,
       genre: PropTypes.oneOf([`rock`, `jazz`, `blues`]).isRequired
     })).isRequired,

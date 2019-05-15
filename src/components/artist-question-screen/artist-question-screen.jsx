@@ -62,15 +62,15 @@ const ArtistQuestionScreen = ({question, onAnswer}) => {
         evt.preventDefault();
         onAnswer();
       }}>
-        {answers.map((it, i) => <div className="artist" key={`answer-${i}`}>
+        {answers.map((it) => <div className="artist" key={`answer-${it.id}`}>
           <input
             className="artist__input visually-hidden"
             type="radio"
             name="answer"
             value={it.artist}
-            id={`answer-${i}`}
+            id={`answer-${it.id}`}
           />
-          <label className="artist__name" htmlFor={`answer-${i}`}>
+          <label className="artist__name" htmlFor={`answer-${it.id}`}>
             <img
               className="artist__picture"
               src={it.picture}
@@ -94,6 +94,7 @@ ArtistQuestionScreen.propTypes = {
       src: PropTypes.string.isRequired,
     }).isRequired,
     answers: PropTypes.arrayOf(PropTypes.shape({
+      id: PropTypes.number.isRequired,
       picture: PropTypes.string.isRequired,
       artist: PropTypes.string.isRequred,
     })).isRequired,

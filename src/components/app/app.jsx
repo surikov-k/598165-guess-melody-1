@@ -17,7 +17,7 @@ class App extends PureComponent {
     const {questions} = this.props;
     const {question} = this.state;
 
-    return this._getScreen(questions[question], () => {
+    return this.getScreen(questions[question], () => {
       this.setState({
         question: question + 1 >= questions.length
           ? -1
@@ -26,7 +26,7 @@ class App extends PureComponent {
     });
   }
 
-  _getScreen(question, onClick) {
+  getScreen(question, onClick) {
     if (!question) {
       const {
         errorCount,

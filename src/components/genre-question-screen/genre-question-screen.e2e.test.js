@@ -12,18 +12,22 @@ const mock = {
     genre: `rock`,
     answers: [
       {
+        id: 0,
         src: `test.mp3`,
         genre: `rock`,
       },
       {
+        id: 1,
         src: `test.mp3`,
         genre: `blues`,
       },
       {
+        id: 2,
         src: `test.mp3`,
         genre: `jazz`,
       },
       {
+        id: 3,
         src: `test.mp3`,
         genre: `rock`,
       },
