@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders properly 1`] = `
+exports[`GenreQuestionScreen component renders properly 1`] = `
 <section
   className="game game--genre"
 >
@@ -90,10 +90,12 @@ exports[`renders properly 1`] = `
       onSubmit={[Function]}
     >
       <div
-        className="track"
+        className="game__track"
       >
         <button
           className="track__button track__button--play"
+          disabled={true}
+          onClick={[Function]}
           type="button"
         />
         <div
@@ -120,10 +122,12 @@ exports[`renders properly 1`] = `
         </div>
       </div>
       <div
-        className="track"
+        className="game__track"
       >
         <button
           className="track__button track__button--play"
+          disabled={true}
+          onClick={[Function]}
           type="button"
         />
         <div
@@ -150,10 +154,12 @@ exports[`renders properly 1`] = `
         </div>
       </div>
       <div
-        className="track"
+        className="game__track"
       >
         <button
           className="track__button track__button--play"
+          disabled={true}
+          onClick={[Function]}
           type="button"
         />
         <div
@@ -180,10 +186,12 @@ exports[`renders properly 1`] = `
         </div>
       </div>
       <div
-        className="track"
+        className="game__track"
       >
         <button
           className="track__button track__button--play"
+          disabled={true}
+          onClick={[Function]}
           type="button"
         />
         <div

@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`is rendered correctly 1`] = `
+exports[`ArtistQuestionScreen component is rendered correctly 1`] = `
 <section
   className="game game--artist"
 >
@@ -88,9 +88,15 @@ exports[`is rendered correctly 1`] = `
     >
       <button
         className="track__button track__button--play"
+        disabled={true}
+        onClick={[Function]}
         type="button"
       />
-      <audio />
+      <div
+        className="track__status"
+      >
+        <audio />
+      </div>
     </div>
     <form
       className="game__artist"

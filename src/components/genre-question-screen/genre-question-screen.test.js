@@ -32,13 +32,22 @@ const mock = {
   },
 };
 
-it(`renders properly`, () => {
-  const {
-    question
-  } = mock;
-  const tree = renderer.create(<GenreQuestionScreen
-    onAnswer={jest.fn()}
-    question={question}
-  />).toJSON();
-  expect(tree).toMatchSnapshot();
+describe(`GenreQuestionScreen component`, () => {
+
+  it(`renders properly`, () => {
+    const {
+      question
+    } = mock;
+    const tree = renderer.create(<GenreQuestionScreen
+      onAnswer={jest.fn()}
+      question={question}
+    />, {
+      createNodeMock: () => {
+        return {};
+      }
+    }
+    ).toJSON();
+    expect(tree).toMatchSnapshot();
+  });
 });
+
