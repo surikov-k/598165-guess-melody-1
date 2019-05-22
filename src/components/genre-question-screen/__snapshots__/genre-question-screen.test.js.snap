@@ -32,13 +32,6 @@ exports[`GenreQuestionScreen component renders properly 1`] = `
         cx="390"
         cy="390"
         r="370"
-        style={
-          Object {
-            "filter": "url(#blur)",
-            "transform": "rotate(-90deg) scaleY(-1)",
-            "transformOrigin": "center",
-          }
-        }
       />
     </svg>
     <div

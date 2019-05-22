@@ -40,11 +40,6 @@ class ArtistQuestionScreen extends React.PureComponent {
             cx="390"
             cy="390"
             r="370"
-            style={{
-              filter: `url(#blur)`,
-              transform: ` rotate(-90deg) scaleY(-1)`,
-              transformOrigin: `center`
-            }}
           />
         </svg>
 
@@ -66,9 +61,7 @@ class ArtistQuestionScreen extends React.PureComponent {
         <div className="game__track">
           <AudioPlayer
             isPlaying={isPlaying}
-            onPlayButtonClick={() => this.setState({
-              isPlaying: !isPlaying
-            })}
+            onPlayButtonClick={this._handlerPlayButtonClick.bind(this)}
             src={song.src}
           />
         </div>
@@ -77,7 +70,7 @@ class ArtistQuestionScreen extends React.PureComponent {
           evt.preventDefault();
           onAnswer();
         }}>
-          {answers.map((it) => <div className="artist" key={`answer-${it.id}`}>
+          {answers.map((it) => <div className="artist" key={`${it.id}`}>
             <input
               className="artist__input visually-hidden"
               type="radio"
@@ -98,6 +91,11 @@ class ArtistQuestionScreen extends React.PureComponent {
         </form>
       </section>
     </section>;
+  }
+  _handlerPlayButtonClick() {
+    this.setState({
+      isPlaying: !this.state.isPlaying
+    });
   }
 }
 

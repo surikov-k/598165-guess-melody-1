@@ -14,7 +14,7 @@ class GenreQuestionScreen extends React.PureComponent {
   }
 
   render() {
-    const {question, onAnswer} = this.props;
+    const {question} = this.props;
     const {
       answers,
       genre
@@ -41,7 +41,6 @@ class GenreQuestionScreen extends React.PureComponent {
             cx="390"
             cy="390"
             r="370"
-            style={{filter: `url(#blur)`, transform: `rotate(-90deg) scaleY(-1)`, transformOrigin: `center`}}
           />
         </svg>
 
@@ -60,17 +59,12 @@ class GenreQuestionScreen extends React.PureComponent {
 
       <section className="game__screen">
         <h2 className="game__title">Выберите {genre} треки</h2>
-        <form className="game__tracks" onSubmit={(evt) => {
-          evt.preventDefault();
-          onAnswer();
-        }}>
-          {answers.map((it) => <div className="game__track" key={`answer-${it.id}`}>
+        <form className="game__tracks" onSubmit={this._handlerSubmitForm.bind(this)}>
+          {answers.map((it) => <div className="game__track" key={it.id}>
             <AudioPlayer
               src={it.src}
               isPlaying={it.id === this.state.activePlayer}
-              onPlayButtonClick={() => this.setState({
-                activePlayer: this.state.activePlayer === it.id ? null : it.id
-              })}
+              onPlayButtonClick={this._handlerPlayButtonClick.bind(this, it.id)}
             />
             <div className="game__answer">
               <input
@@ -87,6 +81,17 @@ class GenreQuestionScreen extends React.PureComponent {
         </form>
       </section>
     </section>;
+  }
+
+  _handlerSubmitForm(evt) {
+    evt.preventDefault();
+    this.props.onAnswer();
+  }
+
+  _handlerPlayButtonClick(answerId) {
+    this.setState({
+      activePlayer: this.state.activePlayer === answerId ? null : answerId
+    });
   }
 }
 
